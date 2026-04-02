@@ -18,6 +18,8 @@ gsap.registerPlugin(ScrollTrigger);
 export default function App() {
   const lenisRef = useRef<Lenis | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  // Estado que indica cuando todo el preload ha terminado y las animaciones pueden iniciar
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     // Inicialización de Lenis para un scroll suave y fluido
@@ -86,11 +88,25 @@ export default function App() {
     };
   }, []);
 
+  /**
+   * Manejador de finalización del preloader
+   * Se ejecuta cuando el preloader ha terminado su animación y se está ocultando
+   * Esperamos 300ms adicionales para que la transición de salida del preloader termine
+   * antes de iniciar las animaciones del Hero (para que se vea la rotación 3D)
+   */
+  const handlePreloaderComplete = () => {
+    setIsLoading(false);
+    // Retraso adicional para asegurar que el preloader ha salido completamente de la pantalla
+    setTimeout(() => {
+      setIsLoaded(true);
+    }, 300);
+  };
+
   return (
-    <main className="bg-[#0a0a0a] text-white selection:bg-orange-500 selection:text-white cursor-none">
+    <main className="bg-[#0a0a0a] text-white selection:bg-orange-500 selection:text-white">
       <AnimatePresence mode="wait">
         {isLoading && (
-          <Preloader key="preloader" onComplete={() => setIsLoading(false)} />
+          <Preloader key="preloader" onComplete={handlePreloaderComplete} />
         )}
       </AnimatePresence>
 
@@ -98,7 +114,8 @@ export default function App() {
       <CustomCursor />
       <BackToTop />
       <Navbar />
-      <Hero />
+      {/* Pasamos isLoaded al Hero para controlar el inicio de sus animaciones */}
+      <Hero isLoaded={isLoaded} />
       <About />
       <Projects />
       <Skills />
