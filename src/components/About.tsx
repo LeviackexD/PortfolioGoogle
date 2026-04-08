@@ -134,7 +134,7 @@ export default function About() {
     <section id="about" ref={sectionRef} className="relative min-h-screen flex items-center bg-[#0a0a0a] py-32 px-6 overflow-hidden">
       {/* Texto decorativo de fondo con movimiento parallax */}
       <div className="bg-text absolute top-1/2 left-0 -translate-y-1/2 text-[25vw] font-black text-white/[0.02] whitespace-nowrap pointer-events-none select-none uppercase will-change-transform">
-        ABOUT ME ABOUT ME ABOUT ME
+        SOBRE MÍ SOBRE MÍ SOBRE MÍ
       </div>
 
       <div className="max-w-7xl mx-auto z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center">
@@ -161,24 +161,24 @@ export default function About() {
         <div ref={textRef} className="lg:col-span-7 space-y-12 order-1 lg:order-2">
           {/* Encabezado de sección */}
           <div className="space-y-2">
-            <h2 className="text-sm uppercase tracking-[0.4em] text-orange-500 font-bold">01 / Background</h2>
+            <h2 className="text-sm uppercase tracking-[0.4em] text-orange-500 font-bold">01 / Sobre Mí</h2>
             <h3 className="text-4xl md:text-6xl font-black text-white tracking-tighter">
-              CRAFTING <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/40">EXPERIENCES.</span>
+              CREANDO <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/40">EXPERIENCIAS.</span>
             </h3>
           </div>
           
           {/* Texto descriptivo principal */}
           <p className="text-xl md:text-2xl text-gray-300 font-light leading-relaxed">
-            I am a full-stack developer based in the digital realm, obsessed with 
-            <span className="text-orange-500 italic font-serif"> pixel-perfect</span> details and 
-            <span className="text-blue-400"> fluid animations</span>.
+            Soy un desarrollador full-stack basado en el ámbito digital, obsesionado con los detalles
+            <span className="text-orange-500 italic font-serif"> pixel-perfect</span> y las 
+            <span className="text-blue-400"> animaciones fluidas</span>.
           </p>
           
           <p className="text-lg text-gray-400 leading-relaxed font-light">
-            With over 5 years of experience, I've helped startups and established brands 
-            transform their ideas into high-performance web applications. My approach 
-            combines technical rigor with creative exploration.
+            Con más de 5 años de experiencia, he ayudado a startups y marcas establecidas 
+            a transformar sus ideas en aplicaciones web de alto rendimiento. Mi enfoque 
+            combina rigor técnico con exploración creativa.
           </p>
           
           {/* Grid de información adicional (Estadísticas/Detalles) */}

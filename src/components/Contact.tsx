@@ -36,7 +36,82 @@ export default function Contact() {
       x: -300,
       ease: 'none'
     });
+    // ============================================================================
+    // ANIMACIÓN CONTINUA DE "LET'S TALK" - Efecto de atención para indicar click
+    // ============================================================================
+    const talkChars = document.querySelectorAll('.talk-char');
+    
+    // Animación de onda continua para llamar la atención
+    talkChars.forEach((char, i) => {
+      gsap.to(char, {
+        y: gsap.utils.random(-3, 3),
+        rotateZ: gsap.utils.random(-2, 2),
+        duration: gsap.utils.random(1.5, 2.5),
+        repeat: -1,
+        yoyo: true,
+        ease: 'sine.inOut',
+        delay: i * 0.05,
+      });
+    });
+
+    // Animación de escala pulsante en todo el texto cada 3 segundos
+    gsap.to('.lets-talk-container', {
+      scale: 1.02,
+      duration: 0.6,
+      repeat: -1,
+      repeatDelay: 2,
+      yoyo: true,
+      ease: 'power2.inOut',
+    });
+
+    // Brillo pulsante
+    gsap.to('.lets-talk-container', {
+      textShadow: '0 0 30px rgba(249, 115, 22, 0.5), 0 0 60px rgba(249, 115, 22, 0.3)',
+      duration: 1,
+      repeat: -1,
+      repeatDelay: 1,
+      yoyo: true,
+      ease: 'power2.inOut',
+      delay: 0.5,
+    });
+
+    // Efecto hover magnético para "LET'S TALK"
+    const letsTalkBtn = document.querySelector('.lets-talk-container');
+    if (letsTalkBtn) {
+      letsTalkBtn.addEventListener('mouseenter', () => {
+        gsap.to(talkChars, {
+          scale: 1.1,
+          color: '#f97316',
+          duration: 0.3,
+          stagger: 0.02,
+          ease: 'back.out(2)',
+        });
+      });
+      
+      letsTalkBtn.addEventListener('mouseleave', () => {
+        gsap.to(talkChars, {
+          scale: 1,
+          color: '#ffffff',
+          duration: 0.3,
+          stagger: 0.02,
+          ease: 'power2.out',
+        });
+      });
+    }
   }, { scope: container });
+
+  // Utilidad para dividir texto en caracteres animables
+  const splitLetsTalk = (text: string) => {
+    return text.split('').map((char, i) => (
+      <span 
+        key={i} 
+        className="talk-char inline-block"
+        style={{ display: char === ' ' ? 'inline' : 'inline-block' }}
+      >
+        {char === ' ' ? '\u00A0' : char}
+      </span>
+    ));
+  };
 
   return (
     <section id="contact" ref={container} className="relative bg-[#0a0a0a] py-32 px-6 border-t border-white/5 overflow-hidden z-30">
@@ -51,9 +126,9 @@ export default function Contact() {
         {/* Botón principal de llamada a la acción que abre el modal */}
         <button 
           onClick={() => setIsModalOpen(true)}
-          className="contact-item inline-block text-5xl md:text-8xl lg:text-9xl font-black text-white tracking-tighter hover:text-orange-500 transition-colors duration-500 mb-20 cursor-none"
+          className="contact-item lets-talk-container inline-block text-5xl md:text-8xl lg:text-9xl font-black text-white tracking-tighter hover:text-orange-500 transition-colors duration-500 mb-20 cursor-none will-change-transform"
         >
-          LET'S TALK.
+          {splitLetsTalk("LET'S TALK.")}
         </button>
 
         {/* Grid de información de contacto detallada */}
@@ -88,7 +163,7 @@ export default function Contact() {
 
         {/* Footer / Copyright */}
         <div className="mt-32 text-[10px] uppercase tracking-[0.5em] text-gray-600">
-          © 2026 STUDIO X — ALL RIGHTS RESERVED
+          © 2026 M.CJ — ALL RIGHTS RESERVED
         </div>
       </div>
 

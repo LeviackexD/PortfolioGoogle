@@ -277,7 +277,7 @@ export default function Projects() {
     <div id="projects" ref={triggerRef} className="relative min-h-screen bg-[#0a0a0a] z-20">
       {/* Texto de fondo parallax */}
       <div className="bg-text-projects absolute top-1/2 left-0 -translate-y-1/2 text-[25vw] font-black text-white/[0.01] whitespace-nowrap pointer-events-none select-none uppercase will-change-transform z-0">
-        SELECTED WORKS SELECTED WORKS
+         MIS PROYECTOS 
       </div>
       
       {/* Contenedor del scroll horizontal */}
@@ -285,13 +285,13 @@ export default function Projects() {
         {/* Diapositiva de Título Inicial */}
         <div className="w-screen h-full flex items-center px-12 md:px-32 shrink-0 bg-[#0a0a0a]">
           <div className="project-title-wrapper space-y-8 will-change-transform">
-            <span className="text-orange-500 font-bold tracking-[0.4em] text-sm block">02 / Portfolio</span>
+            <span className="text-orange-500 font-bold tracking-[0.4em] text-sm block">02 / Portafolio</span>
             <h2 className="project-main-title text-[12vw] font-black text-white uppercase tracking-tighter leading-[0.8] select-none">
               <div className="overflow-hidden">
-                {splitTitle('SELECTED')}
+                {splitTitle('MIS')}
               </div>
               <div className="overflow-hidden">
-                <span className="text-orange-500">{splitTitle('WORKS')}</span>
+                <span className="text-orange-500">{splitTitle('TRABAJOS')}</span>
               </div>
             </h2>
           </div>

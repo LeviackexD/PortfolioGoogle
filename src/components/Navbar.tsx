@@ -27,9 +27,19 @@ export default function Navbar() {
         <motion.a 
           href="#" 
           whileHover={{ scale: 1.05 }}
-          className="text-2xl font-black tracking-tighter text-white uppercase"
+          whileTap={{ scale: 0.95 }}
+          animate={{
+            scale: [1, 1.05, 1],
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            repeatDelay: 3,
+            ease: "easeInOut"
+          }}
+          className="text-2xl font-black tracking-tighter text-white uppercase cursor-pointer"
         >
-          STUDIO<span className="text-orange-500">.</span>X
+          <span className="inline-block">STUDIO</span><span className="text-orange-500 inline-block">.</span><span className="inline-block">X</span>
         </motion.a>
 
         {/* Navegación para Escritorio (Desktop) */}
