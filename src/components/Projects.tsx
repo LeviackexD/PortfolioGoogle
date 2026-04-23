@@ -40,23 +40,16 @@ const allProjects = [
   },
 
   {
-    title: 'HelpDesk Scotland',
-    category: 'Soporte Técnico / SaaS',
-    description: 'Plataforma de tickets de soporte para empresas con sistema de priorización y estadísticas en tiempo real.',
-    technologies: ['React', 'Socket.io', 'MySQL', 'Node.js'],
-    image: 'https://picsum.photos/seed/helpdesk/1200/800',
-    preview: 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJqZ3R6Z3R6Z3R6Z3R6Z3R6Z3R6Z3R6Z3R6Z3R6Z3R6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/3o7TKMGpxx6B3N2c0w/giphy.gif',
-    color: '#9d50bb',
+    title: 'SakuraPath',
+    category: 'EdTech / Aprendizaje de Idiomas',
+    description: 'Plataforma interactiva para aprender japonés desde cero. Gamificación, lecciones dinámicas y seguimiento de progreso para estudiantes principiantes.',
+    technologies: ['React', 'Next.js', 'Tailwind CSS', 'Framer Motion'],
+    image: 'https://images.unsplash.com/photo-1528164344705-47542687000d?q=80&w=1200&h=800&auto=format&fit=crop',
+    link: 'https://aprendejapones-six.vercel.app/',
+    preview: '/sakura-preview.mov',
+    color: '#E63946',
   },
-  {
-    title: 'Portfolio RPG Interactivo',
-    category: 'Videojuego / Phaser.js',
-    description: 'Portfolio estilo RPG donde exploras mis habilidades y proyectos como en un juego de aventuras.',
-    technologies: ['Phaser.js', 'JavaScript', 'Canvas API', 'Tilemaps'],
-    image: 'https://picsum.photos/seed/rpg/1200/800',
-    preview: '/rpg-preview.mov',
-    color: '#3a7bd5',
-  },
+
   {
     title: 'Scottish Market',
     category: 'E-commerce / Local',
