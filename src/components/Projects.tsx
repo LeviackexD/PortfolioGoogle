@@ -9,13 +9,14 @@ gsap.registerPlugin(ScrollTrigger);
 // Todos los proyectos disponibles
 const allProjects = [
   {
-    title: 'Barbería "Highland Cuts"',
-    category: 'Web Corporativa / Reservas',
-    description: 'Sistema de reservas online para barbería escocesa con gestión de citas y galería de estilos.',
-    technologies: ['React', 'Node.js', 'MongoDB', 'Tailwind CSS'],
-    image: 'https://picsum.photos/seed/barberia/1200/800',
-    preview: 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJqZ3R6Z3R6Z3R6Z3R6Z3R6Z3R6Z3R6Z3R6Z3R6Z3R6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/3o7TKMGpxx6B3N2c0w/giphy.gif',
-    color: '#ff4e00',
+    title: 'Fika Coffee & Brunch',
+    category: 'Web Corporativa / Hostelería',
+    description: 'Sitio web minimalista para una cafetería de especialidad en Escocia. Enfocado en la experiencia visual, menú digital y branding moderno.',
+    technologies: ['React', 'Vite', 'Tailwind CSS', 'Framer Motion'],
+    image: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1200&h=800&auto=format&fit=crop',
+    link: 'https://fikacafeforres.vercel.app/',
+    preview: '/fika-preview.mov',
+    color: '#D4A373',
   },
   {
     title: 'TimeTracker Pro',
@@ -85,33 +86,33 @@ export default function Projects() {
   // Animación de apertura/cierre del modal con GSAP
   useGSAP(() => {
     if (!modalRef.current) return;
-    
+
     if (showAllProjects) {
       // Animación de apertura
-      gsap.fromTo(modalRef.current, 
-        { 
-          opacity: 0, 
+      gsap.fromTo(modalRef.current,
+        {
+          opacity: 0,
           scale: 0.8,
           backdropFilter: 'blur(0px)'
         },
-        { 
-          opacity: 1, 
+        {
+          opacity: 1,
           scale: 1,
           backdropFilter: 'blur(20px)',
           duration: 0.4,
           ease: 'power2.out'
         }
       );
-      
+
       // Animación de entrada de las tarjetas
       gsap.fromTo('.modal-project-card',
-        { 
-          opacity: 0, 
+        {
+          opacity: 0,
           y: 30,
           scale: 0.9
         },
-        { 
-          opacity: 1, 
+        {
+          opacity: 1,
           y: 0,
           scale: 1,
           duration: 0.3,
@@ -199,7 +200,7 @@ export default function Projects() {
     });
 
     // Aparece el texto de fondo real mientras el título principal se aleja
-    gsap.fromTo('.bg-text-projects', 
+    gsap.fromTo('.bg-text-projects',
       { opacity: 0 },
       {
         opacity: 0.01,
@@ -277,9 +278,9 @@ export default function Projects() {
     <div id="projects" ref={triggerRef} className="relative min-h-screen bg-[#0a0a0a] z-20">
       {/* Texto de fondo parallax */}
       <div className="bg-text-projects absolute top-1/2 left-0 -translate-y-1/2 text-[25vw] font-black text-white/[0.01] whitespace-nowrap pointer-events-none select-none uppercase will-change-transform z-0">
-         MIS PROYECTOS 
+        MIS PROYECTOS
       </div>
-      
+
       {/* Contenedor del scroll horizontal */}
       <div ref={sectionRef} className="flex h-screen w-max items-center relative overflow-hidden will-change-transform bg-[#0a0a0a]">
         {/* Diapositiva de Título Inicial */}
@@ -301,31 +302,42 @@ export default function Projects() {
         {featuredProjects.map((project, index) => (
           <div key={index} className="project-card w-[80vw] h-full flex items-center justify-center px-4 md:px-12 shrink-0">
             <div className="relative group w-full max-w-5xl aspect-video overflow-hidden rounded-2xl bg-white/5 border border-white/10">
-              
+
               {/* Contenedor de Medios (Imagen estática + GIF en hover) */}
               <div className="absolute inset-0 w-full h-full">
                 {/* Imagen estática (Base) */}
-                <img 
-                  src={project.image} 
+                <img
+                  src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:opacity-0"
                   referrerPolicy="no-referrer"
                 />
-                {/* GIF de Vista Previa (Aparece en hover) */}
-                <img 
-                  src={project.preview} 
-                  alt={`${project.title} preview`}
-                  className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-105 group-hover:scale-100"
-                  referrerPolicy="no-referrer"
-                />
+                {/* Preview (Aparece en hover) */}
+                {project.preview.match(/\.(mp4|mov|webm)$/) ? (
+                  <video
+                    src={project.preview}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-105 group-hover:scale-100"
+                  />
+                ) : (
+                  <img
+                    src={project.preview}
+                    alt={`${project.title} preview`}
+                    className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-105 group-hover:scale-100"
+                    referrerPolicy="no-referrer"
+                  />
+                )}
                 {/* Overlay de degradado para legibilidad */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
               </div>
-              
+
               {/* Información del proyecto */}
               <div className="project-content absolute inset-0 p-8 md:p-12 flex flex-col justify-end">
                 <div className="max-w-2xl transform transition-transform duration-500 group-hover:-translate-y-4">
-                  
+
                   {/* Categoría y Tags de Tecnología */}
                   <div className="flex flex-wrap gap-2 mb-4 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-100">
                     <span className="text-[10px] uppercase tracking-[0.2em] text-orange-500 font-bold bg-orange-500/10 px-2 py-1 rounded">
@@ -351,9 +363,14 @@ export default function Projects() {
 
                 {/* Botón de acción */}
                 <div className="absolute bottom-8 right-8 md:bottom-12 md:right-12">
-                  <button className="w-14 h-14 md:w-20 md:h-20 rounded-full bg-white flex items-center justify-center text-black hover:bg-orange-500 hover:text-white transition-all duration-500 transform group-hover:rotate-45 group-hover:scale-110 shadow-2xl">
+                  <a
+                    href={(project as any).link || "#"}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-14 h-14 md:w-20 md:h-20 rounded-full bg-white flex items-center justify-center text-black hover:bg-orange-500 hover:text-white transition-all duration-500 transform group-hover:rotate-45 group-hover:scale-110 shadow-2xl"
+                  >
                     <ArrowUpRight className="w-8 h-8 md:w-10 md:h-10" />
-                  </button>
+                  </a>
                 </div>
               </div>
 
@@ -370,12 +387,12 @@ export default function Projects() {
         <div className="w-screen h-full flex items-center justify-center px-6 md:px-16 shrink-0 bg-[#0a0a0a]">
           <div className="text-center space-y-8 max-w-2xl">
             <h3 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter">
-¿Quieres ver <span className="text-orange-500">más</span>?
+              ¿Quieres ver <span className="text-orange-500">más</span>?
             </h3>
             <p className="text-gray-400 text-lg">
               Explora todos mis proyectos incluyendo sistemas de monitoreo, videojuegos y plataformas de e-commerce
             </p>
-            <button 
+            <button
               onClick={openModal}
               className="group relative inline-flex items-center gap-3 bg-orange-500 text-white px-8 py-4 rounded-full text-lg font-bold tracking-widest uppercase hover:bg-white hover:text-black transition-all duration-300 transform hover:scale-105 shadow-lg shadow-orange-500/20"
             >
@@ -392,12 +409,12 @@ export default function Projects() {
 
       {/* Modal de Todos los Proyectos */}
       {showAllProjects && (
-        <div 
+        <div
           ref={modalRef}
           className="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl flex items-center justify-center p-4"
           onClick={closeModal}
         >
-          <div 
+          <div
             className="bg-[#0a0a0a] rounded-3xl w-full h-full max-h-[90vh] max-w-7xl overflow-hidden border border-white/10 flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
@@ -411,7 +428,7 @@ export default function Projects() {
                   {allProjects.length} proyectos de desarrollo full stack y sistemas
                 </p>
               </div>
-              <button 
+              <button
                 onClick={closeModal}
                 className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors duration-300 shrink-0"
               >
@@ -423,27 +440,38 @@ export default function Projects() {
             <div className="flex-1 overflow-y-auto p-6">
               <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
                 {allProjects.map((project, index) => (
-                  <div 
+                  <div
                     key={index}
                     className="modal-project-card group relative w-full aspect-video bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:bg-white/10 transition-all duration-300"
                   >
                     {/* Contenedor de Medios (Preview solo en hover, sin texto) */}
                     <div className="absolute inset-0 w-full h-full">
-                      {/* Preview (Solo visible en hover, sin texto) */}
-                      <img 
-                        src={project.preview} 
-                        alt={`${project.title} preview`}
-                        className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                        referrerPolicy="no-referrer"
-                      />
+                      {/* Preview (Solo visible en hover) */}
+                      {project.preview.match(/\.(mp4|mov|webm)$/) ? (
+                        <video
+                          src={project.preview}
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                          className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                        />
+                      ) : (
+                        <img
+                          src={project.preview}
+                          alt={`${project.title} preview`}
+                          className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                          referrerPolicy="no-referrer"
+                        />
+                      )}
                       {/* Overlay oscuro para legibilidad en hover */}
                       <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     </div>
-                    
+
                     {/* Información del proyecto (visible por defecto) */}
                     <div className="absolute inset-0 p-6 flex flex-col justify-center">
                       <div className="text-center space-y-4">
-                        
+
                         {/* Categoría */}
                         <div className="opacity-100 group-hover:opacity-0 transition-opacity duration-300">
                           <span className="text-[10px] uppercase tracking-[0.2em] text-orange-500 font-bold bg-orange-500/10 px-3 py-1 rounded-full inline-block">
@@ -472,9 +500,14 @@ export default function Projects() {
 
                         {/* Botón de acción (solo visible en hover) */}
                         <div className="absolute bottom-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-200">
-                          <button className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center text-white hover:bg-orange-500 hover:text-white transition-all duration-500 transform group-hover:rotate-45 group-hover:scale-110">
+                          <a
+                            href={(project as any).link || "#"}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center text-white hover:bg-orange-500 hover:text-white transition-all duration-500 transform group-hover:rotate-45 group-hover:scale-110"
+                          >
                             <ArrowUpRight className="w-6 h-6" />
-                          </button>
+                          </a>
                         </div>
 
                         {/* Indicador de Preview (solo en hover) */}
