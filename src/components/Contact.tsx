@@ -40,7 +40,7 @@ export default function Contact() {
     // ANIMACIÓN CONTINUA DE "LET'S TALK" - Efecto de atención para indicar click
     // ============================================================================
     const talkChars = document.querySelectorAll('.talk-char');
-    
+
     // Animación de onda continua para llamar la atención
     talkChars.forEach((char, i) => {
       gsap.to(char, {
@@ -87,7 +87,7 @@ export default function Contact() {
           ease: 'back.out(2)',
         });
       });
-      
+
       letsTalkBtn.addEventListener('mouseleave', () => {
         gsap.to(talkChars, {
           scale: 1,
@@ -103,8 +103,8 @@ export default function Contact() {
   // Utilidad para dividir texto en caracteres animables
   const splitLetsTalk = (text: string) => {
     return text.split('').map((char, i) => (
-      <span 
-        key={i} 
+      <span
+        key={i}
         className="talk-char inline-block"
         style={{ display: char === ' ' ? 'inline' : 'inline-block' }}
       >
@@ -119,12 +119,12 @@ export default function Contact() {
       <div className="bg-text-contact absolute top-1/2 left-0 -translate-y-1/2 text-[25vw] font-black text-white/[0.02] whitespace-nowrap pointer-events-none select-none uppercase will-change-transform">
         CONTACT CONTACT CONTACT
       </div>
-      
+
       <div className="max-w-7xl mx-auto text-center z-10 relative">
         <h2 className="text-sm uppercase tracking-[0.4em] text-orange-500 font-bold mb-12">04 / Contact</h2>
-        
+
         {/* Botón principal de llamada a la acción que abre el modal */}
-        <button 
+        <button
           onClick={() => setIsModalOpen(true)}
           className="contact-item lets-talk-container inline-block text-5xl md:text-8xl lg:text-9xl font-black text-white tracking-tighter hover:text-orange-500 transition-colors duration-500 mb-20 cursor-none will-change-transform"
         >
@@ -137,16 +137,16 @@ export default function Contact() {
           <div className="contact-item">
             <h4 className="text-[10px] uppercase tracking-widest text-gray-500 mb-6">Socials</h4>
             <div className="flex space-x-6">
-              <a href="#" className="text-white hover:text-orange-500 transition-colors"><Github size={20} /></a>
-              <a href="#" className="text-white hover:text-orange-500 transition-colors"><Linkedin size={20} /></a>
-              <a href="#" className="text-white hover:text-orange-500 transition-colors"><Twitter size={20} /></a>
+              <a href="https://github.com/LeviackexD" target="_blank" rel="noopener noreferrer" className="text-white hover:text-orange-500 transition-colors"><Github size={20} /></a>
+              <a href="#" target="_blank" rel="noopener noreferrer" className="text-white hover:text-orange-500 transition-colors"><Linkedin size={20} /></a>
+              <a href="#" target="_blank" rel="noopener noreferrer" className="text-white hover:text-orange-500 transition-colors"><Twitter size={20} /></a>
             </div>
           </div>
 
           {/* Consultas / Email */}
           <div className="contact-item">
             <h4 className="text-[10px] uppercase tracking-widest text-gray-500 mb-6">Inquiries</h4>
-            <button 
+            <button
               onClick={() => setIsModalOpen(true)}
               className="text-white hover:text-orange-500 transition-colors flex items-center gap-2 cursor-none"
             >

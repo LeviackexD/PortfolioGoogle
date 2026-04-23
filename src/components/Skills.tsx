@@ -65,17 +65,17 @@ export default function Skills() {
       <div className="bg-text-skills absolute top-1/2 left-0 -translate-y-1/2 text-[25vw] font-black text-white/[0.02] whitespace-nowrap pointer-events-none select-none uppercase will-change-transform">
         TECH STACK TECH STACK
       </div>
-      
+
       <div className="max-w-7xl mx-auto z-10 relative">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
           {/* Columna de texto descriptivo */}
           <div>
-            <h2 className="text-sm uppercase tracking-[0.4em] text-orange-500 font-bold mb-8">03 / Expertise</h2>
+            <h2 className="text-sm uppercase tracking-[0.4em] text-orange-500 font-bold mb-8">03 / Experiencia</h2>
             <h3 className="text-5xl md:text-7xl font-black text-white tracking-tighter mb-12">
-              MY TECH<br />STACK.
+              Mi Stack<br />Tecnológico.
             </h3>
             <p className="text-xl text-gray-400 font-light leading-relaxed max-w-md">
-              I specialize in building high-performance, accessible, and visually stunning digital products using the latest technologies.
+              Me especializo en la creación de productos digitales de alto rendimiento, accesibles y visualmente atractivos utilizando las últimas tecnologías.
             </p>
           </div>
 
@@ -89,8 +89,8 @@ export default function Skills() {
                 </div>
                 {/* Contenedor de la barra de progreso */}
                 <div className="h-[1px] w-full bg-white/10 relative overflow-hidden">
-                  <div 
-                    className="skill-bar absolute top-0 left-0 h-full bg-orange-500" 
+                  <div
+                    className="skill-bar absolute top-0 left-0 h-full bg-orange-500"
                     style={{ width: skill.level }}
                   />
                 </div>
