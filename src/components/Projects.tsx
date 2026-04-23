@@ -45,7 +45,7 @@ const allProjects = [
     description: 'Plataforma interactiva para aprender japonés desde cero. Gamificación, lecciones dinámicas y seguimiento de progreso para estudiantes principiantes.',
     technologies: ['React', 'Next.js', 'Tailwind CSS', 'Framer Motion'],
     image: 'https://images.unsplash.com/photo-1528164344705-47542687000d?q=80&w=1200&h=800&auto=format&fit=crop',
-    link: 'https://aprendejapones-six.vercel.app/',
+    link: 'https://fascinating-jelly-314fb9.netlify.app',
     preview: '/sakura-preview.mov',
     color: '#E63946',
   },
@@ -319,14 +319,27 @@ export default function Projects() {
                 />
                 {/* Preview (Aparece en hover) */}
                 {project.preview.match(/\.(mp4|mov|webm)$/) ? (
-                  <video
-                    src={project.preview}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-105 group-hover:scale-100"
-                  />
+                  <div 
+                    className="absolute inset-0 w-full h-full"
+                    onMouseEnter={(e) => {
+                      const video = e.currentTarget.querySelector('video');
+                      if (video) {
+                        video.currentTime = 0;
+                        video.play().catch(() => {});
+                      }
+                    }}
+                  >
+                    <video
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      preload="auto"
+                      className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-105 group-hover:scale-100"
+                    >
+                      <source src={project.preview} type={project.preview.endsWith('.mov') ? 'video/quicktime' : 'video/mp4'} />
+                    </video>
+                  </div>
                 ) : (
                   <img
                     src={project.preview}
@@ -453,14 +466,27 @@ export default function Projects() {
                     <div className="absolute inset-0 w-full h-full">
                       {/* Preview (Solo visible en hover) */}
                       {project.preview.match(/\.(mp4|mov|webm)$/) ? (
-                        <video
-                          src={project.preview}
-                          autoPlay
-                          loop
-                          muted
-                          playsInline
-                          className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                        />
+                        <div 
+                          className="absolute inset-0 w-full h-full"
+                          onMouseEnter={(e) => {
+                            const video = e.currentTarget.querySelector('video');
+                            if (video) {
+                              video.currentTime = 0;
+                              video.play().catch(() => {});
+                            }
+                          }}
+                        >
+                          <video
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            preload="auto"
+                            className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                          >
+                            <source src={project.preview} type={project.preview.endsWith('.mov') ? 'video/quicktime' : 'video/mp4'} />
+                          </video>
+                        </div>
                       ) : (
                         <img
                           src={project.preview}

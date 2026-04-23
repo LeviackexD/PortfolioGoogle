@@ -147,7 +147,7 @@ export default function About() {
           >
             <img
               ref={imageRef}
-              src="https://picsum.photos/seed/portrait/800/1000"
+              src="/Perfil.jpeg"
               alt="Portrait"
               referrerPolicy="no-referrer"
               className="w-full h-full object-cover scale-110"
