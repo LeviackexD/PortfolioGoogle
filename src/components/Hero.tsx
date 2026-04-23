@@ -84,11 +84,11 @@ export default function Hero({ isLoaded = false }: HeroProps) {
       // Filtramos solo los elementos que existen (no null)
       const availableChars = charsRef.current.filter(Boolean);
       if (availableChars.length === 0) return;
-      
+
       // Seleccionamos entre 1 y 5 caracteres aleatorios para aplicar glitch (más visibilidad)
       const numToGlitch = Math.floor(Math.random() * 5) + 1;
       const targets: HTMLSpanElement[] = [];
-      
+
       // Seleccionamos caracteres aleatorios sin repetir
       for (let i = 0; i < numToGlitch; i++) {
         const randomIndex = Math.floor(Math.random() * availableChars.length);
@@ -102,7 +102,7 @@ export default function Hero({ isLoaded = false }: HeroProps) {
       targets.forEach((target) => {
         const original = target.dataset.original || target.textContent || '';
         const glitchChar = GLITCH_CHARS[Math.floor(Math.random() * GLITCH_CHARS.length)];
-        
+
         // Timeline GSAP para la secuencia de glitch (4 pasos de 100ms cada uno)
         // Más lento para mayor visibilidad del efecto
         const tl = gsap.timeline();
@@ -112,25 +112,25 @@ export default function Hero({ isLoaded = false }: HeroProps) {
           y: gsap.utils.random(-3, 3),  // Movimiento aleatorio en Y
           duration: 0.1,  // 100ms (más lento)
         })
-        // Cambiamos el texto al carácter de glitch
-        .call(() => { target.textContent = glitchChar; })
-        .to(target, {
-          opacity: 1,
-          x: 0,
-          y: 0,
-          duration: 0.1,  // 100ms
-        })
-        // Preparación para restaurar
-        .to(target, {
-          opacity: 0.3,
-          duration: 0.1,  // 100ms
-          onComplete: () => { target.textContent = original; }
-        })
-        // Volvemos a opacidad normal
-        .to(target, {
-          opacity: 1,
-          duration: 0.1,  // 100ms
-        });
+          // Cambiamos el texto al carácter de glitch
+          .call(() => { target.textContent = glitchChar; })
+          .to(target, {
+            opacity: 1,
+            x: 0,
+            y: 0,
+            duration: 0.1,  // 100ms
+          })
+          // Preparación para restaurar
+          .to(target, {
+            opacity: 0.3,
+            duration: 0.1,  // 100ms
+            onComplete: () => { target.textContent = original; }
+          })
+          // Volvemos a opacidad normal
+          .to(target, {
+            opacity: 1,
+            duration: 0.1,  // 100ms
+          });
       });
     }, 1500 + Math.random() * 1000);  // 1.5-2.5 segundos entre glitches
 
@@ -184,7 +184,7 @@ export default function Hero({ isLoaded = false }: HeroProps) {
     // ============================================================================
     // ANIMACIÓN DE ENTRADA - Timeline principal (solo se ejecuta cuando isLoaded es true)
     // ============================================================================
-    
+
     // Paso 1: Caracteres entrantes con stagger aleatorio
     // from: 'random' hace que las letras aparezcan en orden aleatorio, no de izquierda a derecha
     tl.to('.char', {
@@ -197,21 +197,21 @@ export default function Hero({ isLoaded = false }: HeroProps) {
       },
       ease: 'expo.out',       // Easing exponencial out = rápido al principio, lento al final
     })
-    // Paso 2: Entrada del subtítulo (empieza 0.8s antes de terminar la anterior)
-    .to(subRef.current, {
-      y: 0,
-      opacity: 1,
-      duration: 1,
-      ease: 'power3.out',
-    }, '-=0.8')
-    // Paso 3: Animación del indicador de scroll (loop infinito)
-    .from('.scroll-indicator', {
-      opacity: 0,
-      y: -20,
-      duration: 1,
-      repeat: -1,    // Infinito
-      yoyo: true,    // Va y vuelve
-    }, '-=0.5');
+      // Paso 2: Entrada del subtítulo (empieza 0.8s antes de terminar la anterior)
+      .to(subRef.current, {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: 'power3.out',
+      }, '-=0.8')
+      // Paso 3: Animación del indicador de scroll (loop infinito)
+      .from('.scroll-indicator', {
+        opacity: 0,
+        y: -20,
+        duration: 1,
+        repeat: -1,    // Infinito
+        yoyo: true,    // Va y vuelve
+      }, '-=0.5');
 
     // ============================================================================
     // EFECTO 2: ONDA FLOTANTE CONTINUA (Idle Animation)
@@ -299,10 +299,10 @@ export default function Hero({ isLoaded = false }: HeroProps) {
     // ============================================================================
     // JSX - ESTRUCTURA DEL COMPONENTE
     // ============================================================================
-    
+
     // Contenedor principal: pantalla completa, fondo oscuro, centrado
     <section ref={container} className="relative h-screen w-full flex flex-col items-center justify-center bg-[#0a0a0a] overflow-hidden px-6">
-      
+
       {/* ------------------------------------------------------------------------- */}
       {/* CAPA 1: TEXTO DE FONDO CON PARALLAX                                       */}
       {/* ------------------------------------------------------------------------- */}
@@ -351,7 +351,7 @@ export default function Hero({ isLoaded = false }: HeroProps) {
         </div>
         <div className="flex items-center gap-2">
           <span>📱</span>
-          <span>697 320 916</span>
+          <span>697 320 800</span>
         </div>
       </div>
 

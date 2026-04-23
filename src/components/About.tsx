@@ -20,7 +20,7 @@ export default function About() {
       }
     });
 
-    tl.fromTo(imageContainerRef.current, 
+    tl.fromTo(imageContainerRef.current,
       { clipPath: 'inset(0% 100% 0% 0%)', x: -50 },
       {
         clipPath: 'inset(0% 0% 0% 0%)',
@@ -30,11 +30,11 @@ export default function About() {
       }
     ).fromTo(imageRef.current,
       { scale: 1.6, filter: 'grayscale(1) blur(10px)' },
-      { 
-        scale: 1.1, 
+      {
+        scale: 1.1,
         filter: 'grayscale(0) blur(0px)',
-        duration: 2, 
-        ease: 'expo.out' 
+        duration: 2,
+        ease: 'expo.out'
       },
       "-=1.4"
     );
@@ -138,17 +138,17 @@ export default function About() {
       </div>
 
       <div className="max-w-7xl mx-auto z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center">
-        
+
         {/* Columna de la Imagen */}
         <div className="lg:col-span-5 order-2 lg:order-1">
-          <div 
+          <div
             ref={imageContainerRef}
             className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-white/5 border border-white/10"
           >
-            <img 
+            <img
               ref={imageRef}
-              src="https://picsum.photos/seed/portrait/800/1000" 
-              alt="Portrait" 
+              src="https://picsum.photos/seed/portrait/800/1000"
+              alt="Portrait"
               referrerPolicy="no-referrer"
               className="w-full h-full object-cover scale-110"
             />
@@ -167,20 +167,20 @@ export default function About() {
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/40">EXPERIENCIAS.</span>
             </h3>
           </div>
-          
+
           {/* Texto descriptivo principal */}
           <p className="text-xl md:text-2xl text-gray-300 font-light leading-relaxed">
-            Soy un desarrollador full-stack basado en el ámbito digital, obsesionado con los detalles
-            <span className="text-orange-500 italic font-serif"> pixel-perfect</span> y las 
+            Soy un desarrollador full-stack apasionado por el mundo digital, obsesionado con los detalles
+            <span className="text-orange-500 italic font-serif"> pixel-perfect</span> y las
             <span className="text-blue-400"> animaciones fluidas</span>.
           </p>
-          
+
           <p className="text-lg text-gray-400 leading-relaxed font-light">
-            Con más de 5 años de experiencia, he ayudado a startups y marcas establecidas 
-            a transformar sus ideas en aplicaciones web de alto rendimiento. Mi enfoque 
+            Con más de 5 años de experiencia, he ayudado a startups y marcas establecidas
+            a transformar sus ideas en aplicaciones web de alto rendimiento. Mi enfoque
             combina rigor técnico con exploración creativa.
           </p>
-          
+
           {/* Grid de información adicional (Estadísticas/Detalles) */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 pt-12 border-t border-white/10">
             <div className="stat-item">

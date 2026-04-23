@@ -31,7 +31,7 @@ export default function Preloader({ onComplete }: { onComplete: () => void, key?
     >
       {/* Contenedor del contador */}
       <div className="relative overflow-hidden h-[15vw] flex items-center">
-        <motion.span 
+        <motion.span
           initial={{ y: '100%' }}
           animate={{ y: 0 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
@@ -43,7 +43,7 @@ export default function Preloader({ onComplete }: { onComplete: () => void, key?
 
       {/* Barra de progreso sutil en la parte inferior */}
       <div className="absolute bottom-0 left-0 w-full h-1 bg-white/5">
-        <motion.div 
+        <motion.div
           initial={{ width: 0 }}
           animate={{ width: `${counter}%` }}
           className="h-full bg-orange-500"
@@ -52,13 +52,13 @@ export default function Preloader({ onComplete }: { onComplete: () => void, key?
 
       {/* Texto decorativo */}
       <div className="absolute bottom-12 left-12 overflow-hidden">
-        <motion.p 
+        <motion.p
           initial={{ y: 20, opacity: 0 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
           className="text-[10px] uppercase tracking-[0.5em] text-gray-500 font-bold"
         >
-          Studio X — Digital Experience
+          MCJ — Portfolio personal
         </motion.p>
       </div>
     </motion.div>
