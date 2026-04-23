@@ -19,14 +19,26 @@ const allProjects = [
     color: '#D4A373',
   },
   {
-    title: 'TimeTracker Pro',
-    category: 'Productividad / Analytics',
-    description: 'App inteligente de gestión del tiempo con análisis de productividad y reportes automáticos para freelancers.',
-    technologies: ['React', 'Express', 'Chart.js', 'JWT Auth'],
-    image: 'https://picsum.photos/seed/timetracker/1200/800',
-    preview: 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJqZ3R6Z3R6Z3R6Z3R6Z3R6Z3R6Z3R6Z3R6Z3R6Z3R6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/l41lTjJ8Z8Z8Z8Z8Z/giphy.gif',
-    color: '#00d2ff',
+    title: 'Kinloss Barber',
+    category: 'Web Corporativa / Reservas',
+    description: 'Plataforma de reservas online para una barbería de autor en las Highlands. Diseño elegante, gestión de citas y optimización para dispositivos móviles.',
+    technologies: ['Next.js', 'React', 'Tailwind CSS', 'Vercel'],
+    image: 'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=1200&h=800&auto=format&fit=crop',
+    link: 'https://kinloss-barber.vercel.app/',
+    preview: '/KinlossBarber.mov',
+    color: '#1a1a1a',
   },
+
+  {
+    title: 'Portfolio RPG Interactivo',
+    category: 'Videojuego / Phaser.js',
+    description: 'Portfolio estilo RPG donde exploras mis habilidades y proyectos como en un juego de aventuras.',
+    technologies: ['Phaser.js', 'JavaScript', 'Canvas API', 'Tilemaps'],
+    image: 'https://picsum.photos/seed/rpg/1200/800',
+    preview: '/rpg-preview.mov',
+    color: '#3a7bd5',
+  },
+
   {
     title: 'HelpDesk Scotland',
     category: 'Soporte Técnico / SaaS',
@@ -42,7 +54,7 @@ const allProjects = [
     description: 'Portfolio estilo RPG donde exploras mis habilidades y proyectos como en un juego de aventuras.',
     technologies: ['Phaser.js', 'JavaScript', 'Canvas API', 'Tilemaps'],
     image: 'https://picsum.photos/seed/rpg/1200/800',
-    preview: 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJqZ3R6Z3R6Z3R6Z3R6Z3R6Z3R6Z3R6Z3R6Z3R6Z3R6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/l41lTjJ8Z8Z8Z8Z8Z/giphy.gif',
+    preview: '/rpg-preview.mov',
     color: '#3a7bd5',
   },
   {
